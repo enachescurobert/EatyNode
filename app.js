@@ -35,7 +35,9 @@ app.use((req, res, next) => {
   }
   next();
 });
-
+//ADD FRONT END
+app.use(express.static(__dirname + '/statics'));
+// FRONT END
 // Routes which should handle requests
 app.use("/products", productRoutes);
 app.use("/orders", orderRoutes);
