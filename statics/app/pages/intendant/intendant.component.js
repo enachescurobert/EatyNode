@@ -5,7 +5,7 @@ angular
 .module('InTendant')
 
 .component('userList', {
-    templateUrl: 'static/app/pages/intendant/templates/users.html',
+    templateUrl: 'app/pages/intendant/templates/users.html',
     controller: function($scope,popupService, $window, User) 
     {
     // GET : Take everything
@@ -26,7 +26,7 @@ angular
 })
 
  .component('userView',{
-    templateUrl: 'static/app/pages/intendant/templates/user-view.html',
+    templateUrl: 'app/pages/intendant/templates/user-view.html',
     controller: function($scope,$stateParams, User) {
       $scope.user = User.get({id:$stateParams.id}); //Get a single user.Issues a GET to /api/users/:id
     }
@@ -36,7 +36,7 @@ angular
 
 
   .component('userCreate',{
-    templateUrl: 'static/app/pages/intendant/templates/user-add.html',
+    templateUrl: 'app/pages/intendant/templates/user-add.html',
     controller: function($scope, $state, $stateParams, User) {
       $scope.user = new User();  //create new user instance. Properties will be set via ng-model on UI
       
@@ -52,7 +52,7 @@ angular
 
   
   .component('userEdit',{
-    templateUrl: 'static/app/pages/intendant/templates/user-edit.html',  
+    templateUrl: 'app/pages/intendant/templates/user-edit.html',  
     controller: function($scope, $state, $stateParams, User) {
    
      $scope.updateUser = function() { //Update the edited user. Issues a PUT to /api/users/:id

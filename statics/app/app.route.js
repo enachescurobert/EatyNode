@@ -10,13 +10,13 @@ angular.module('demoApp')
 
       .state('home', {
           url: '/',
-          templateUrl: 'static/app/components/authentication/home/index.view.html',
+          templateUrl: 'app/components/authentication/home/index.view.html',
           controller: 'Home.IndexController',
           controllerAs: 'vm'
       })
       .state('login', {
           url: '/login',
-          templateUrl: 'static/app/components/authentication/login/index.view.html',
+          templateUrl: 'app/components/authentication/login/index.view.html',
           controller: 'Login.IndexController',
           controllerAs: 'vm'
       })
@@ -26,11 +26,11 @@ angular.module('demoApp')
       })
       .state('wishlist',{
         url:'/wishlist', 
-        templateUrl: 'static/app/pages/wishlist/wishlist.template.html'
+        templateUrl: 'app/pages/wishlist/wishlist.template.html'
       })
         .state('productmanagement',{
           url:'/productmanagement', 
-          templateUrl: 'static/app/pages/productmanagement/productmanagement.template.html'
+          templateUrl: 'pages/productmanagement/productmanagement.template.html'
           })
         .state('pay',{
           url:'/pay', 
@@ -38,7 +38,7 @@ angular.module('demoApp')
         })
         .state('intendant',{
           url:'/intendant', 
-          templateUrl: 'static/app/pages/intendant/intendant.template.html'
+          templateUrl: 'pages/intendant/intendant.template.html'
         })
 
         // Wishlist
@@ -106,13 +106,13 @@ angular.module('demoApp')
         // })
         // .state('viewSession', { //state for showing single user
         //   url: '/session/sessions/:id/view',
-        //   templateUrl: 'static/app/components/session-row/templates/session-view.html',
+        //   templateUrl: 'app/components/session-row/templates/session-view.html',
         //   // component: 'sessionView',
         //   controller: 'SessionViewController'
         // })
         .state('newSession', { //state for adding a new session
           url: '/session/sessions/new',
-          templateUrl: 'static/app/components/session-row/templates/session-add.html',
+          templateUrl: 'app/components/session-row/templates/session-add.html',
 
           // component: 'sessionCreate',
           controller: 'SessionCreateController'
@@ -120,14 +120,14 @@ angular.module('demoApp')
         })
         .state('editSession', { //state for updating a session
           url: '/session/sessions/:id/edit',
-          templateUrl: 'static/app/components/session-row/templates/session-edit.html',
+          templateUrl: 'app/components/session-row/templates/session-edit.html',
           // component: 'sessionEdit',
           controller: 'SessionEditController'
         })
 
         .state('newGroup', { //state for adding a new session
           url: '/session/groups/new',
-          templateUrl: 'static/app/pages/intendant/group/templates/group-add.html',
+          templateUrl: 'pages/intendant/group/templates/group-add.html',
 
           // component: 'sessionCreate',
           controller: 'GroupCreateController'
@@ -135,7 +135,7 @@ angular.module('demoApp')
         })
         .state('editGroup', { //state for updating a session
           url: '/session/sessions/:id/edit',
-          templateUrl: 'static/app/pages/intendant/group/templates/group-edit.html',
+          templateUrl: 'pages/intendant/group/templates/group-edit.html',
           // component: 'sessionEdit',
           controller: 'GroupEditController'
         });
