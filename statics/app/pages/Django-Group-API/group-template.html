@@ -1,0 +1,29 @@
+<!-- {% load static %}
+{% if group %}
+   There are {{ group|length }} grouptypes:
+   <ul>
+   {% for e in group %}
+      <li> {{ e.name }} </li>
+   {% endfor %}
+  </ul>
+{% else %}
+   There are no records in the system
+{% endif %} -->
+
+{% if groups %}
+   There are {{ groups|length }} groups:
+<ul>
+  {% for group in groups %}
+    <a href="{% url 'update_group' group.id %}">
+
+      <!-- <li>Group url: {{group.url}}</li> -->
+      <li>Group name: {{group.name}}</li>
+
+      <hr>
+
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'create_group' %}">New Group</a>

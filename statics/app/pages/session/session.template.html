@@ -1,0 +1,151 @@
+<br>
+<div ng-controller="SessionViewController">
+    <div ng-controller="SessionEditController">
+        <div ng-controller="SessionListController">
+            <div ng-controller="SessionCreateController">
+                <div ng-controller="userInformations">
+                        <div ng-controller="DownloadTable">
+
+                <div class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="header">
+                                        <div class="col-md-4">
+                                            <h4 class="title">Current Session</h4>
+                                            <p class="category">
+                                                Managing everyone's session
+                                            </p>
+                                        </div>
+                                        <div class="col-md-3" style="text-align: center;">
+                                            <input class="form-control col-md-3" ng-model="search" type="text"
+                                                placeholder="Search" aria-label="Search">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-success btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
+                                        </div>
+
+                                        <div class="col-md-3">
+
+                                            <!--<button class="btn btn-info btn-fill" ng-click="Export()">Export to PDF</button>-->
+                                            <!-- <input type="button" value="Export" ng-click="Export()" /> -->
+                                      </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="content table-responsive table-full-width" id="tblSession">
+                                            <!-- <table class="export-table" style="width: 100%; margin-top: 20px"> -->
+                                                <div class="export-table">
+                                        <table class="table table-hover table-striped" show-filter="true">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">X's on Coffe<br>Add 1</th>
+                                                <th scope="col">X's on Cake<br>Add 0.5</th>
+                                                <th scope="col">Coffe Total(€)</th>
+                                                <th scope="col">Cake Total(€)</th>
+                                                <th scope="col">Total Debt(€)</th>
+                                                <th scope="col" colspan="3" style="text-align: center"><button class="btn btn-secondary btn-fill" ng-click="resetSession(); sessions.$update()" ng-if="myVar == 'isAuthenticated'">
+                                                        Reset The Entire Session 
+                                                      </button></th>
+                                            </tr>
+                                            </thead>
+                                            <br>
+                                            <tbody>
+                                                <tr ng-repeat="session in sessions | filter: search">
+                                                <!-- <tr ng-repeat="session in sessions | filter: search" ng-class="{red: (session.cake * 0.5 + session.coffe * 0.1) != 0}"> -->
+                                                        
+                                                    <!-- <td>{{session.user.username}}</td> -->
+                                                    <td scope="row">{{session.user.first_name}} {{session.user.last_name}}</td>
+                                                    <td scope="row">
+                                                        <div class="col-md-3">
+                                                            {{session.coffe}}
+                                                        </div>
+                                                        <div class="col-md-6">
+
+                                                            <button type="submit" class="btn btn-info btn-number btn-fill"
+                                                                data-type="plus" ng-click="session.coffe = session.coffe + 1;session.$update()">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                            </button>
+
+                                                        </div>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <div class="col-md-3">
+                                                            {{session.cake}}
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <button type="button" class="btn btn-info btn-number  btn-fill"
+                                                                data-type="plus" ng-click="session.cake = session.cake + 0.5; session.$update()">
+                                                                <i class="glyphicon glyphicon-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                    <!-- <td scope="row" ng-class="{red: (session.coffe * 0.1) != 0}">{{session.coffe / 10 | currency :"€"}}</td>
+                                                    <td scope="row" ng-class="{red: (session.cake * 0.5 ) != 0}">{{session.cake / 2 | currency :"€"}}</td>
+                                                    <td scope="row" ng-class="{red: (session.cake * 0.5 + session.coffe * 0.1) != 0}">{{session.cake * 0.5 + session.coffe * 0.1 |
+                                                        currency :"€"}}</td> -->
+                                                        <td scope="row">{{session.coffe / 10 | currency :"€"}}</td>
+                                                        <td scope="row">{{session.cake / 2 | currency :"€"}}</td>
+                                                        <td scope="row" ng-class="{red: (session.cake * 0.5 + session.coffe * 0.1) != 0}">{{session.cake * 0.5 + session.coffe * 0.1 |
+                                                            currency :"€"}}</td>
+                                                    <td scope="row">
+                                                        <a class="btn btn-primary btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="editSession({id:session.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <button class="btn btn-warning btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="session.cake = 0; session.coffe = 0; session.$update()">Reset Session</button>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <button class="btn btn-danger btn-fill" ng-show="myVar == 'isAuthenticated'" ng-click="deleteSession(session)"> <i class="glyphicon glyphicon-trash"></i></button>
+                                                    </td>
+                                                    
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                        <hr>
+                                        <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('csv')">Export as CSV</button>
+                                      <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('excel')">Export as Excel</button>
+                                      <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('doc')">Export as Doc</button>
+                                     <!-- <button class="btn btn-light btn-fill" data-ng-click="exportAction('pdf')"> Export Pdf</button> -->
+
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></div>
+<!-- <div ng-controller="UserListController">
+        <table class="table usertable">  
+        <tr>
+            <td><h3>All Users:</h3></td>
+        </tr>      
+        <tr>
+            <td><h4>User</h4></td>
+            <td><h4>User ID:</h4></td>
+        </tr>  
+        <tr ng-repeat="user in users">
+            <td>{{user.username}}</td>
+            <td>{{user.id}}</td>
+        </tr>
+<hr>
+</div> -->
+
+
+
+<style type="text/css">
+    .red {
+        color: red; 
+    }
+    
+    .black {
+        color: black;
+    }
+    </style>

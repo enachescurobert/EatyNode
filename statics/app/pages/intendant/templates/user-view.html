@@ -1,0 +1,30 @@
+<table class="table usertable">
+    <tr>
+      <td><h3>Edit {{user.username}}</h3></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Username</td>
+      <td>{{user.username}}</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td>{{user.first_name}}</td>
+      </tr>
+      <tr>
+          <td>Last Name</td>
+          <td>{{user.last_name}}</td>
+        </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>Group</td>
+      <td>{{user.groups}}</td>
+    </tr>
+
+  </table>
+  <div>
+    <a class="btn btn-primary" ui-sref="editUser({id:user.id})">Edit</a>
+  </div>

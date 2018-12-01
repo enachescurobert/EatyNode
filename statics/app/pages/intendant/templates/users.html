@@ -1,0 +1,111 @@
+<br>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <div class="col-md-6">
+              <h4 class="title">Intendant Restricted Page </h4>
+              <p class="category">Users Management</p>
+            </div>
+            <div class="col-md-3" style="text-align: center;">
+              <input class="form-control col-md-3" ng-model="search" type="text" placeholder="Search USER" aria-label="Search">
+            </div>
+            <div class="col-md-3">
+              <button ui-sref="newUser" class="btn btn-success btn-fill">Add New User</button>
+            </div>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <tr>
+                <td>
+                  <strong>Username</strong>
+                </td>
+                <td>
+                  <strong>First Name</strong>
+                </td>
+                <td>
+                  <strong>Last Name</strong>
+                </td>
+                <td>
+                  <strong>Email</strong>
+                </td>
+                <!-- <td >
+                  <strong>Group ID</strong>
+                </td> -->
+                <td colspan="2"></td>
+              </tr>
+              <tr ng-repeat="user in users| filter: search">
+                <td>{{user.username}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <!-- <td>{{user.groups.name}}</td> -->
+                <!-- <td>{{user.groups}}</td> -->
+                <td>
+                  <a class="btn btn-primary btn-fill" ui-sref="editUser({id:user.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a class="btn btn-danger btn-fill" ng-click="deleteUser(user)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <br>
+<div ng-controller="GroupViewController">
+  <div ng-controller="GroupEditController">
+    <div ng-controller="GroupListController">
+      <div ng-controller="GroupCreateController">
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="header">
+                    <div class="col-md-6">
+                      <h4 class="title">Groups:</h4>
+                      <p class="category">All departments of the ARTAL</p>
+                    </div>
+                    <div class="col-md-3" style="text-align: center;">
+                      <input class="form-control col-md-3" ng-model="searchG" type="text" placeholder="Search GROUP" aria-label="Search">
+                    </div>
+                    <div class="col-md-3">
+                      <button ui-sref="newGroup" class="btn btn-success">Add New Group</button>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                      <tr>
+                        <td>
+                          <strong>Group</strong>
+                        </td>
+                        <td colspan="2">
+                          <strong>Id</strong>
+                        </td>
+                      </tr>
+                      <tr ng-repeat="group in groups| filter: searchG">
+                        <td>{{group.name}}</td>
+                        <td>{{group.id}}</td>
+                        <td>
+                          <a class="btn btn-primary" ui-sref="editGroup({id:group.id})">Edit</a>
+                          <a class="btn btn-danger" ng-click="deleteGroup(group)">Delete</a>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

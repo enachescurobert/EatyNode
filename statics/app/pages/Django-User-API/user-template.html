@@ -1,0 +1,23 @@
+<h1>{{ user }},</h1>
+<h2>from here you can see the list of users with their email and group:</h2>
+
+
+
+{% if users %}
+   There are {{ users|length }} users:
+<ul>
+  {% for user in users %}
+    <a href="{% url 'update_user' user.id %}">
+
+      <!-- <li>User url: {{user.url}}</li> -->
+      <li>Username: {{user.username}}</li>
+      <li>Email: {{user.email}}</li>
+      <li>Group: {{user.group}}</li>
+      <hr>
+
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'create_user' %}">New User</a>

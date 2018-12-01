@@ -1,0 +1,69 @@
+<br>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <div class="col-md-6">
+              <h4 class="title">Product Management Page</h4>
+              <p class="category">To make everyone's job easier</p>
+            </div>
+          </div>
+          <div class="col-md-3" style="text-align: center;">
+            <input class="form-control col-md-3" ng-model="search" type="text" placeholder="Search product" aria-label="Search">
+          </div>
+          <div class="col-md-3">
+            <button ui-sref="newProdudus" class="btn btn-success btn-fill">Add New Product</button>
+          </div>
+          <div class="content table-responsive table-full-width">
+            <table class="table table-hover table-striped">
+              <thead>
+                <tr>
+                  <td>
+                    <strong>ID of the product</strong>
+                  </td>
+                  <td>
+                    <strong>Shop Price (€) </strong>
+                  </td>
+                  <td>
+                    <strong>Price in Crosses</strong>
+                  </td>
+                  <td>
+                    <strong>Quantity</strong>
+                  </td>
+                  <td>
+                    <strong>Total</strong>
+                  </td>
+                </tr>
+              </thead>
+              <tbody ng-repeat="_ in [ [ search, produduse ] ]" ng-init="total = 0">
+                <tr ng-repeat="produdus in produduse | filter: search">
+                  <td>{{produdus.product_type.name}}</td>
+                  <td>{{produdus.price | currency :"€"}}</td>
+                  <td>{{produdus.price * 2}} x</td>
+                  <td>{{produdus.quantity}}</td>
+                  <!-- <td>{{produdus.price}} (€)</td> -->
+                  <!-- <td>{{produdus.quantity * produdus.cross * 0.5}} (€)</td> -->
+                  <td ng-init="$parent.total = $parent.total + (produdus.price * produdus.quantity)">{{ produdus.price * produdus.quantity| currency :"€"}}</td>
+                  <td>
+                    <a class="btn btn-primary btn-fill" ui-sref="editProdudus({id:produdus.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-danger btn-fill" ng-click="deleteProdudus(produdus)"><i class="glyphicon glyphicon-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                    <b>Total</b>
+                  </td>
+                  <td colspan="2">
+                    <b>{{ total| currency :"€" }}</b>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

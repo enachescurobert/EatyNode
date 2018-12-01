@@ -1,0 +1,32 @@
+<!-- {% load static %}
+{% if product %}
+   There are {{ product|length }} producttypes:
+   <ul>
+   {% for e in product %}
+      <li> {{ e.name }} </li>
+   {% endfor %}
+  </ul>
+{% else %}
+   There are no records in the system
+{% endif %} -->
+
+{% if products %}
+   There are {{ products|length }} products:
+<ul>
+  {% for product in products %}
+    <a href="{% url 'update_product' product.id %}">
+
+      <li>Product name: {{product.product_type}}</li>
+      <li>Number of crosses: {{product.cross}}</li>
+      <li>Quantity: {{product.quantity}}</li>
+      <li>Price: {{product.price}} (€)</li>
+      ..............
+      <li>The real price haha: {{product.product_total}}(€)</li>
+      
+      <hr>
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'create_product' %}">New Product</a>

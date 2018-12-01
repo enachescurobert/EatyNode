@@ -1,0 +1,25 @@
+{% if sessions %}
+   There are {{ sessions|length }} sessions:
+<ul>
+  {% for session in sessions %}
+    <a href="{% url 'update_session' session.id %}">
+
+      <!-- <li>User url: {{session.url}}</li> -->
+      <li>Username: {{session.user}}</li>
+      <li>Coffe X number: {{session.coffe}}</li>
+      <li>Cake X number: {{session.cake}}</li>
+      <!-- <li>Coffe: {{session.coffetotal}}</li> -->
+      <!-- <li>Cake: {{session.caketotal}}</li> -->
+      <!-- <li>Total: {{session.caketotal}}</li> -->
+      <li>Coffe Total Debt: {{session.coffe_total}} (€)</li>
+      <li>Cake Total Debt: {{session.cake_total}} (€)</li>
+      <li>Total Debt: {{session.value_total}} (€)</li>
+
+      <hr>
+
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'create_session' %}">Add User to Session</a>

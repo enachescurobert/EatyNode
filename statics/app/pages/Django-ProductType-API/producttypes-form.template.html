@@ -1,0 +1,11 @@
+<h1>New/Update product type</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Save</button>
+</form>
+
+{% if producttype %}
+    <a href="{% url 'delete_producttype' producttype.id %}">Delete</a>
+{% endif %}

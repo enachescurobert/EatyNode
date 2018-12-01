@@ -1,0 +1,31 @@
+
+<div ng-controller="SessionViewController">
+    <div ng-controller="SessionEditController">
+    <div ng-controller="SessionListController">   
+<table class="table sessiontable">
+    <tr>
+      <td><h3>Edit the session of the user with the id: {{session.user}}</h3></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>User ID:</td>
+      <td>{{session.user}}</td>
+    </tr>
+    <tr>
+      <td>Coffe X number:</td>
+      <td>{{session.coffe}}</td>
+    </tr>
+    <tr>
+      <td>Cake X number:</td>
+      <td>{{session.cake}}</td>
+    </tr>
+    <!-- <tr>
+      <td>Session Genre</td>
+      <td>{{session.genre}}</td>
+    </tr>  -->
+  </table>
+  <div>
+    <a class="btn btn-primary" ui-sref="editSession({id:session.id})">Edit</a>
+  </div>
+
+  </div></div></div>

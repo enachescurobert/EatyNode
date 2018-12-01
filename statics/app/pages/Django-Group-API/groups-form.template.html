@@ -1,0 +1,11 @@
+<h1>New/Update group</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Save</button>
+</form>
+
+{% if group %}
+    <a href="{% url 'delete_group' group.id %}">Delete</a>
+{% endif %}

@@ -1,0 +1,52 @@
+<br>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <p class="category">
+                <!-- <h4>Add/Edit Product</h4> -->
+                <h5>The name of the product: {{produdus.product_type.name}}</h5>
+            </p>
+          </div>
+          <!-- <div class="form-group">
+            <div class="col-sm-10">
+              
+            </div>
+          </div> -->
+          <div class="form-group">
+            <label for="product_type" class="col-sm-2 control-label">Product name = </label>
+            <div class="col-sm-10">
+              <input type="text" ng-model="produdus.product_type.name" class="form-control" id="product_type.name" placeholder="What is the name of the product?"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="quantity" class="col-sm-2 control-label">Quantity</label>
+            <div class="col-sm-10">
+              <input type="text" ng-model="produdus.quantity" class="form-control" id="quantity" placeholder="How many items?" />
+            </div>
+          </div>
+          <!-- <div class="form-group">
+    <label for="cross" class="col-sm-2 control-label">Number of crosses</label>
+    <div class="col-sm-10">
+      <input type="text" ng-model="produdus.cross" class="form-control" id="cross" placeholder="How many crosses?"/>
+    </div>
+  </div> -->
+          <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">Product price (€)</label>
+            <div class="col-sm-10">
+              <input type="text" ng-model="produdus.price" class="form-control" id="price" placeholder="What's the price?" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <input type="submit" class="btn btn-primary" value="Save" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

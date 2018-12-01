@@ -1,0 +1,25 @@
+<!-- {% load static %}
+{% if product %}
+   There are {{ product|length }} products:
+   <ul>
+   {% for e in product %}
+      <li> {{ e.name }} </li>
+   {% endfor %}
+  </ul>
+{% else %}
+   There are no records in the system
+{% endif %} -->
+
+{% if producttypes %}
+   There are {{ producttypes|length }} product types:
+<ul>
+  {% for producttype in producttypes %}
+    <a href="{% url 'update_producttype' producttype.id %}">
+
+      <li>{{producttype.name}}</li>
+    </a>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="{% url 'create_producttype' %}">New Product Type</a>

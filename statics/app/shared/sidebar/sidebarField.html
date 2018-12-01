@@ -1,0 +1,56 @@
+<!-- <div class="wrapper"> -->
+                <!-- <div class="sidebar" data-color="black" data-image="static/app/shared/sidebar/imagini/sidebar-5.jpg"> -->
+                    
+                                    <!--
+            
+                    Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+                    Tip 2: you can also add an image using data-image tag
+            
+                -->
+            
+                    <div class="sidebar-wrapper">
+                        <div class="logo">
+                            <a href="https://extranet.artal.fr/" class="simple-text">
+                                Eaty
+                            </a>
+                        </div>
+
+                       
+                            <ul class="nav">
+                                <li ng-class="{ active: isActive('/session') }">
+                                <!-- <li ng-class="{ active: isActive('/View1') }"> class="active"> -->
+                                    <a href="#!session" class="{{ condition ? 'active' : '' }}">
+                                        <i class="pe-7s-home"></i>
+                                        <p>Session</p>
+                                    </a>
+                                </li>
+                                <li ng-class="{ active: isActive('/wishlist') }">
+                                    <a href="#!wishlist" class="{{ condition ? 'active' : '' }}">
+                                        <i class="pe-7s-note2"></i>
+                                        <p>Wishlist</p>
+                                    </a>
+                                </li>
+                                <li ng-class="{ active: isActive('/productmanagement') }">
+                                    <a href="#!productmanagement" class="{{ condition ? 'active' : '' }}">
+                                        <i class="pe-7s-albums"></i>
+                                        <p>Product Management</p>
+                                    </a>
+                                </li>
+                                <li ng-class="{ active: isActive('/pay') }">
+                                    <a href="#!pay" class="{{ condition ? 'active' : '' }}">
+                                        <!-- <i class="pe-7s-wallet"></i> -->
+                                        <i class="pe-7s-cash"></i>
+                                        
+                                        <p>Pay</p>
+                                    </a>
+                                </li>
+                                <li ng-class="{ active: isActive('/intendant') }">
+                                    <a href="#!intendant" class="{{ condition ? 'active' : '' }}">
+                                        <i class="pe-7s-users"></i>
+                                        <p>Users</p>
+                                    </a>
+                                </li>               
+                        </ul>
+                    </div>
+                <!-- </div> -->
+            <!-- </div>   -->

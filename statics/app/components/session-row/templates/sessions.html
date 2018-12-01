@@ -1,0 +1,23 @@
+
+<hr>
+<a ui-sref="newSession" class="btn-primary btn-lg nodecoration">Add New User to Session</a>
+
+<table class="table sessiontable">
+  <tr>
+    <td><h3>All Products:</h3></td>
+    <td><h3>ID of the product:</h3></td>
+    <td><h3>ID of the product:</h3></td>
+
+  </tr>
+  <tr ng-repeat="session in sessions">
+    <td>{{session.user}}</td>
+    <td>{{session.coffe}}</td>
+    <td>{{session.cake}}</td>
+
+
+    <td>
+      <a class="btn btn-primary" ui-sref="viewSession({id:session.id})">Edit</a>
+      <a class="btn btn-danger"  ng-click="deleteSession(session)">Delete</a>
+    </td>
+  </tr>
+</table>
