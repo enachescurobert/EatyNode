@@ -33,18 +33,19 @@
                     <span class="sortorder" ng-show="propertyName === 'like'" ng-class="{reverse: reverse}"></span>
                   </th>
               </tr> -->
-                <tr ng-repeat="produs in produse| filter: search | orderBy: '-like'">
-                  <!-- ng-table="vm.tableParams" | orderBy: '-like' -->
-                  <td data-title="'Product name'" filter="{name : 'text'}" sortable="'name'">
-                    {{produs.name}}
-                  </td>
+              <!-- <tr ng-repeat="produs in produse| filter: search | orderBy: '-like'"> -->
+                <tr ng-repeat="produs in produse">
+                  <!-- <td data-title="'Product name'" filter="{name : 'text'}" sortable="'name'"> -->
                   <td>
+                    {{produs}}
+                  </td>
+                  <!-- <td>
                     {{produs.like}}
                     <button type="button" class="btn btn-sm btn-primary btn-number btn-fill" data-type="plus" ng-click="produs.like = produs.like + 1; produs.$update()">
  <span class="glyphicon glyphicon-thumbs-up"></span> Like
 
                     </button>
-                    </td>
+                    </td> -->
                     
                     <!-- <td>
                     {{produs.dislike}}

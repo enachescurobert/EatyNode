@@ -10,8 +10,9 @@
 
 angular.module('wishList.services', [])
        .factory('Produs', function($resource) {
-    return $resource('/Product/types/:id/',{id:'@id'},{
+    return $resource('/products/:_id/',{_id:'@_id'},{
         update: {method:'PUT'},
+        query:  {method: 'GET', isArray: false},
     },{
 
     
