@@ -3,7 +3,7 @@ const Product = require("../models/product");
 
 exports.products_get_all = (req, res, next) => {
   Product.find()
-    .select("name price _id")
+    .select("name price like _id")
     .exec()
     .then(docs => {
       const response = {
@@ -12,6 +12,7 @@ exports.products_get_all = (req, res, next) => {
           return {
             name: doc.name,
             price: doc.price,
+            price: doc.like,
             _id: doc._id,
             request: {
               type: "GET",
@@ -41,6 +42,8 @@ exports.products_create_product = (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     price: req.body.price,
+    like: req.body.like,
+
   });
   product
     .save()
@@ -51,6 +54,7 @@ exports.products_create_product = (req, res, next) => {
         createdProduct: {
           name: result.name,
           price: result.price,
+          like: result.like,
           _id: result._id,
           request: {
             type: "GET",
@@ -70,7 +74,7 @@ exports.products_create_product = (req, res, next) => {
 exports.products_get_product = (req, res, next) => {
   const id = req.params.productId;
   Product.findById(id)
-    .select("name price _id")
+    .select("name price like _id")
     .exec()
     .then(doc => {
       console.log("From database", doc);
