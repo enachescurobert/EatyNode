@@ -6,12 +6,12 @@
 
     .component('produsList', {
       controller: ProdusListController,
-      templateUrl: 'static/app/pages/wishlist/templates/produse.html',
+      templateUrl: 'app/pages/wishlist/templates/produse.html',
     })
 
     .component('produsView', {
       controller: ProdusViewController,
-      templateUrl: 'static/app/pages/wishlist/templates/produs-view.html',
+      templateUrl: 'app/pages/wishlist/templates/produs-view.html',
       // controllerAs: 'ProdusViewController'
 
     })
@@ -19,13 +19,13 @@
 
     .component('produsCreate', {
       controller: ProdusCreateController,
-      templateUrl: 'static/app/pages/wishlist/templates/produs-add.html',
+      templateUrl: 'app/pages/wishlist/templates/produs-add.html',
     })
 
 
     .component('produsEdit', {
       controller: ProdusEditController,
-      templateUrl: 'static/app/pages/wishlist/templates/produs-edit.html',
+      templateUrl: 'app/pages/wishlist/templates/produs-edit.html',
       // controllerAs: 'ProdusEditController',
     })
 

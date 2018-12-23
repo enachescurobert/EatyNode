@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="content table-responsive table-full-width">
-              <table  id="tblWishlist" class="table table-hover table-striped"  style="text-align: center">
+              <table ng-repeat="(x, y) in produse" id="tblWishlist" class="table table-hover table-striped"  style="text-align: center">
                 <!-- <tr>
                   <th style="text-align: center">Product:</th>
                   <th>
@@ -33,9 +33,13 @@
                     <span class="sortorder" ng-show="propertyName === 'like'" ng-class="{reverse: reverse}"></span>
                   </th>
               </tr> -->
-                <tr ng-repeat="produs in produse| filter: search | orderBy: '-like'">
-                  <!-- ng-table="vm.tableParams" | orderBy: '-like' -->
-                  <td data-title="'Product name'" filter="{name : 'text'}" sortable="'name'">
+              <!-- <tr ng-repeat="produs in produse| filter: search | orderBy: '-like'"> -->
+                <tr ng-repeat="(z, produs) in y">
+                  <!-- <td data-title="'Product name'" filter="{name : 'text'}" sortable="'name'"> -->
+                  <td>
+                    {{z+1}}
+                  </td>
+                  <td>
                     {{produs.name}}
                   </td>
                   <td>
@@ -44,7 +48,7 @@
  <span class="glyphicon glyphicon-thumbs-up"></span> Like
 
                     </button>
-                    </td>
+                    </td> 
                     
                     <!-- <td>
                     {{produs.dislike}}

@@ -1,7 +1,8 @@
 angular.module('productControllers', [])
        .factory('Produs', function($resource) {
-    return $resource('/Product/types/:id/',{id:'@id'},{
+    return $resource('/products/:_id/',{_id:'@id'},{
         update: {method:'PUT'},
+        query:  {method: 'GET', isArray: true},
     },{
 
     

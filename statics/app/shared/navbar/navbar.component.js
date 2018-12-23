@@ -5,7 +5,7 @@
     angular
         .module('demoApp')
         .component('navbar', {
-            templateUrl:'static/app/shared/navbar/navbarField.html',
+            templateUrl:'app/shared/navbar/navbarField.html',
             controller: function NavbarController() {
 
             }

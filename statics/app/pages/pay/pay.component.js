@@ -5,7 +5,7 @@ angular.
   module('pay').
   component('pay', {
     controller: PayButtonController,
-    templateUrl: 'static/app/pages/pay/pay.template.html',   
+    templateUrl: 'app/pages/pay/pay.template.html',   
   
   })
 
