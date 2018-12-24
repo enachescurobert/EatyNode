@@ -76,9 +76,27 @@ exports.products_get_product = (req, res, next) => {
 exports.products_update_product = (req, res, next) => {
   const id = req.params.productId;
   const updateOps = {};
-  for (const ops of req.body) {
-    updateOps[ops.propName] = ops.value;
+
+  //Method 1: Patch/Put in this way: 
+  //[{"propName":"like", "value":"10"}]
+
+  // for (const ops of req.body) {
+  //   updateOps[ops.propName] = ops.value;
+  // }
+
+  //Method 2.0: Patch/Put in this way: 
+  //{"like":"10"}
+
+  // for (const key of Object.keys(req.body)) {
+  //   updateOps[key] = req.body[key]
+  // }
+  
+  //Method 2.1: Patch/Put in this way: 
+  //{"like":"10"}
+  for (const key in req.body) {
+    updateOps[key] = req.body[key];
   }
+
   Product.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {

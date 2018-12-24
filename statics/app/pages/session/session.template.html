@@ -5,6 +5,7 @@
             <div ng-controller="SessionCreateController">
                 <div ng-controller="userInformations">
                         <div ng-controller="DownloadTable">
+                            <div ng-controller="SessionReload">
 
                 <div class="content">
                     <div class="container-fluid">
@@ -65,7 +66,7 @@
                                                         <div class="col-md-6">
 
                                                             <button type="submit" class="btn btn-info btn-number btn-fill"
-                                                                data-type="plus" ng-click="session.coffe = session.coffe + 1;session.$update()">
+                                                                data-type="plus" ng-click="session.coffe = session.coffe + 1;session.$update();reloadRoute();">
                                                                 <i class="glyphicon glyphicon-plus"></i>
                                                             </button>
 
@@ -77,7 +78,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <button type="button" class="btn btn-info btn-number  btn-fill"
-                                                                data-type="plus" ng-click="session.cake = session.cake + 0.5; session.$update()">
+                                                                data-type="plus" ng-click="session.cake = session.cake + 0.5; session.$update();reloadRoute();">
                                                                 <i class="glyphicon glyphicon-plus"></i>
                                                             </button>
                                                         </div>
@@ -121,7 +122,7 @@
             </div>
         </div>
     </div>
-</div></div>
+</div></div></div>
 <!-- <div ng-controller="UserListController">
         <table class="table usertable">  
         <tr>

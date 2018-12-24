@@ -12,6 +12,7 @@ router.post("/login", UserController.user_login);
 
 router.get("/:userId", UserController.users_get_user);
 
+router.put("/:userId", UserController.users_update_user);
 
 //router.delete("/:userId", checkAuth, UserController.user_delete);
 

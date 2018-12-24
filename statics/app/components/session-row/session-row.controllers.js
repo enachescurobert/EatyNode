@@ -1,8 +1,8 @@
 angular.module('sessionControllers', [])
   .factory('Session', function ($resource) {
-    return $resource('/user/:id/', {
+    return $resource('/user/:_id/', {
 
-      id: '@id'
+      _id: '@_id'
     }, {
       update: {
         method: 'PUT'
@@ -93,9 +93,18 @@ angular.module('sessionControllers', [])
         });
       };
 
-      $scope.loadSession(); // Load a session which can be edited on UI     
+      $scope.loadSession(); // Load a session which can be edited on UI         
     }
   )
+
+  .controller('SessionReload',
+  function ($scope, $state, $stateParams, Session) {
+    $scope.reloadRoute = function() {
+      $state.reload();
+   }
+  }
+)
+
   .controller('DownloadTable', function($scope) {
     $scope.name = 'World';
     

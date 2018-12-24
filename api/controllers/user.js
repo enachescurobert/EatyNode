@@ -107,7 +107,7 @@ exports.user_login = (req, res, next) => {
 exports.users_get_user = (req, res, next) => {
   const id = req.params.userId;
   User.findById(id)
-    .select("email like _id")
+    .select("email username first_name last_name coffe cake _id")
     .exec()
     .then(doc => {
       console.log("From database", doc);
@@ -130,6 +130,51 @@ exports.users_get_user = (req, res, next) => {
       res.status(500).json({ error: err });
     });
 };
+
+
+exports.users_update_user = (req, res, next) => {
+  const id = req.params.userId;
+  const updateOps = {};
+
+  //Method 1: Patch/Put in this way: 
+  //[{"propName":"like", "value":"10"}]
+
+  // for (const ops of req.body) {
+  //   updateOps[ops.propName] = ops.value;
+  // }
+
+  //Method 2.0: Patch/Put in this way: 
+  //{"like":"10"}
+
+  // for (const key of Object.keys(req.body)) {
+  //   updateOps[key] = req.body[key]
+  // }
+  
+  //Method 2.1: Patch/Put in this way: 
+  //{"like":"10"}
+  for (const key in req.body) {
+    updateOps[key] = req.body[key];
+  }
+
+  User.update({ _id: id }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      res.status(200).json({
+        message: "User updated",
+        request: {
+          type: "GET",
+          url: "http://localhost:3000/user/" + id
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
 
 exports.user_delete = (req, res, next) => {
   User.remove({ _id: req.params.userId })
