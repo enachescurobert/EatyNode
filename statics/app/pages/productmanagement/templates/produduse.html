@@ -39,7 +39,7 @@
               </thead>
               <tbody ng-repeat="_ in [ [ search, produduse ] ]" ng-init="total = 0">
                 <tr ng-repeat="produdus in produduse | filter: search">
-                  <td>{{produdus.product_type.name}}</td>
+                  <td>{{produdus.name}}</td>
                   <td>{{produdus.price | currency :"€"}}</td>
                   <td>{{produdus.price * 2}} x</td>
                   <td>{{produdus.quantity}}</td>

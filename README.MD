@@ -1,5 +1,5 @@
 ## Usage
-npm install
+```npm install```.
 
 Make sure to also add your Mongo Atlas Admin Username to a nodemon.json file (which you have to create).
 

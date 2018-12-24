@@ -1,40 +1,13 @@
 const mongoose = require("mongoose");
 const Product = require("../models/product");
 
-exports.products_get_all = (req, res, next) => {
-  Product.find()
-    .select("name price like _id")
-    .exec()
-    .then(docs => {
-      const response = {
-        count: docs.length,
-        products: docs.map(doc => {
-          return {
-            name: doc.name,
-            price: doc.price,
-            price: doc.like,
-            _id: doc._id,
-            request: {
-              type: "GET",
-              url: "http://localhost:3000/products/" + doc._id
-            }
-          };
-        })
-      };
-      //   if (docs.length >= 0) {
-      res.status(200).json(response);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
+exports.products_get_all = (req, res) => {
+  Product.find({},function(err,task){
+    if(err)
+    res.send(err);
+    res.json(task);
+  });
+
 };
 
 exports.products_create_product = (req, res, next) => {
@@ -43,6 +16,8 @@ exports.products_create_product = (req, res, next) => {
     name: req.body.name,
     price: req.body.price,
     like: req.body.like,
+    cross: req.body.cross,
+    quantity: req.body.quantity,
 
   });
   product
@@ -56,6 +31,8 @@ exports.products_create_product = (req, res, next) => {
           price: result.price,
           like: result.like,
           _id: result._id,
+          cross: result.cross,
+          quantity: result.quantity,
           request: {
             type: "GET",
             url: "http://localhost:3000/products/" + result._id

@@ -10,7 +10,7 @@
 
 angular.module('ProductManagement.services', [])
        .factory('Produdus', function($resource) {
-    return $resource('/Product/products/:id/',{id:'@id'},{
+    return $resource('/products/:id/',{id:'@id'},{
         update: {method:'PUT'},
     },{
 

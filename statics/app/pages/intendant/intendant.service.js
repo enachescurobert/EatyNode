@@ -1,7 +1,7 @@
 angular.module('inTendant.services', [])
        .factory('User', function($resource) {
-    return $resource('/Purchase/users/:id/',{id:'@id'},{
-        update: {method:'PUT'},
+        return $resource('/user/:id/', {
+            update: {method:'PUT'},
     },{
 
     
