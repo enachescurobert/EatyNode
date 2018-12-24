@@ -16,6 +16,8 @@ exports.products_create_product = (req, res, next) => {
     name: req.body.name,
     price: req.body.price,
     like: req.body.like,
+    cross: req.body.cross,
+    quantity: req.body.quantity,
 
   });
   product
@@ -29,6 +31,8 @@ exports.products_create_product = (req, res, next) => {
           price: result.price,
           like: result.like,
           _id: result._id,
+          cross: result.cross,
+          quantity: result.quantity,
           request: {
             type: "GET",
             url: "http://localhost:3000/products/" + result._id

@@ -1,6 +1,7 @@
 angular.module('sessionControllers', [])
   .factory('Session', function ($resource) {
-    return $resource('/Purchase/sessions/:id/', {
+    return $resource('/user/:id/', {
+
       id: '@id'
     }, {
       update: {

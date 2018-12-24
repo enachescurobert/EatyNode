@@ -1,7 +1,7 @@
 angular.module('productmanagementControllers', [])
        .factory('Produdus', function($resource) {
-    return $resource('/Product/products/:id/',{id:'@id'},{
-        update: {method:'PUT'},
+        return $resource('/products/:_id/',{_id:'@_id'},{
+          update: {method:'PUT'},
     },{
 
     

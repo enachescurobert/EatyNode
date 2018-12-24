@@ -4,6 +4,15 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
+exports.users_get_all = (req, res) => {
+  User.find({},function(err,task){
+    if(err)
+    res.send(err);
+    res.json(task);
+  });
+
+};
+
 exports.user_signup = (req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
@@ -22,6 +31,13 @@ exports.user_signup = (req, res, next) => {
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
               email: req.body.email,
+              username: req.body.username,
+              first_name: req.body.first_name,
+              last_name: req.body.last_name,
+              cake: req.body.cake,
+              coffe: req.body.coffe,
+
+
               password: hash
             });
             user
@@ -85,6 +101,33 @@ exports.user_login = (req, res, next) => {
       res.status(500).json({
         error: err
       });
+    });
+};
+
+exports.users_get_user = (req, res, next) => {
+  const id = req.params.userId;
+  User.findById(id)
+    .select("email like _id")
+    .exec()
+    .then(doc => {
+      console.log("From database", doc);
+      if (doc) {
+        res.status(200).json({
+          user: doc,
+          request: {
+            type: "GET",
+            url: "http://localhost:3000/user"
+          }
+        });
+      } else {
+        res
+          .status(404)
+          .json({ message: "No valid entry found for provided ID" });
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ error: err });
     });
 };
 

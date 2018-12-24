@@ -30,7 +30,7 @@ angular.module('demoApp')
       })
         .state('productmanagement',{
           url:'/productmanagement', 
-          templateUrl: 'pages/productmanagement/productmanagement.template.html'
+          templateUrl: 'app/pages/productmanagement/productmanagement.template.html'
           })
         .state('pay',{
           url:'/pay', 
@@ -38,7 +38,7 @@ angular.module('demoApp')
         })
         .state('intendant',{
           url:'/intendant', 
-          templateUrl: 'pages/intendant/intendant.template.html'
+          templateUrl: 'app/pages/intendant/intendant.template.html'
         })
 
         // Wishlist
@@ -155,7 +155,7 @@ angular.module('demoApp')
 
     // redirect to login page if not logged in and trying to access a restricted page
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        var publicPages = ['/login','/session','/wishlist','/wishlist/produse/new','/pay'];
+        var publicPages = ['/login','/session','/wishlist','/productmanagement','/productmanagement/produduse/new','/wishlist/produse/new','/pay','/intendant'];
         var restrictedPage = publicPages.indexOf($location.path()) === -1;
         if (restrictedPage && !$localStorage.currentUser) {
             $location.path('/login');
