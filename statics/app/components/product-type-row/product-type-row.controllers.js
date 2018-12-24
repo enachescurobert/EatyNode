@@ -36,7 +36,7 @@ stripTrailingSlashes: false
 
 
 .controller('ProdusViewController', function($scope, $stateParams, Produs) {
-  $scope.produs = Produs.get({id:$stateParams.id}); //Get a single produs.Issues a GET to /api/produse/:id
+  $scope.produs = Produs.get({_id:$stateParams._id}); //Get a single produs.Issues a GET to /api/produse/:id
 })
 
 
@@ -65,7 +65,7 @@ $scope.addProdus = function() { //create a new produs. Issues a POST to /api/pro
 };
 
 $scope.loadProdus = function() { //Issues a GET request to /api/produse/:id to get a produs to update
-$scope.produs = Produs.get({id:$stateParams.id});
+$scope.produs = Produs.get({_id:$stateParams._id});
 };
 
 $scope.loadProdus(); // Load a produs which can be edited on UI
