@@ -5,7 +5,6 @@ const productSchema = mongoose.Schema({
     name: { type: String, required: false },
     price: { type: Number, required: false },
     like: { type: Number, required: false , default:0},
-    cross: { type: Number, required: false, default:0 },
     quantity: { type: Number, required: false, default:0 },
 
 });
