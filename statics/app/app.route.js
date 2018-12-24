@@ -47,8 +47,13 @@ angular.module('demoApp')
           templateUrl:'app/components/product-type-row/templates/produs-add.html',
           controller: 'ProdusCreateController'
           })
+          .state('viewProdus', { //state for updating a produs
+            url: '/wishlist/produse/:_id/view',
+            templateUrl:'app/components/product-type-row/templates/produs-view.html',
+            controller: 'ProdusViewController'
+          })
         .state('editProdus', { //state for updating a produs
-          url: '/wishlist/produse/:_id/edit',
+          url: '/wishlist/produse/:_id',
           templateUrl:'app/components/product-type-row/templates/produs-edit.html',
           controller: 'ProdusEditController'
         })
@@ -62,7 +67,7 @@ angular.module('demoApp')
           component: 'produdusCreate',
         })
         .state('editProdudus', { //state for updating a produdus
-          url: '/productmanagement/produduse/:_id/edit',
+          url: '/productmanagement/produduse/:_id',
           component: 'produdusEdit',
         })
 
@@ -76,7 +81,7 @@ angular.module('demoApp')
           component: 'userCreate',
         })
         .state('editUser', { //state for updating a user
-          url: '/intendant/users/:_id/edit',
+          url: '/intendant/users/:_id',
           component: 'userEdit',
         })
 
@@ -90,7 +95,7 @@ angular.module('demoApp')
 
         })
         .state('editSession', { //state for updating a session
-          url: '/session/sessions/:_id/edit',
+          url: '/session/sessions/:_id',
           templateUrl: 'app/components/session-row/templates/session-edit.html',
           // component: 'sessionEdit',
           controller: 'SessionEditController'
@@ -105,7 +110,7 @@ angular.module('demoApp')
 
         })
         .state('editGroup', { //state for updating a session
-          url: '/session/sessions/:_id/edit',
+          url: '/session/sessions/:_id',
           templateUrl: 'pages/intendant/group/templates/group-edit.html',
           // component: 'sessionEdit',
           controller: 'GroupEditController'
@@ -129,17 +134,17 @@ angular.module('demoApp')
         var publicPages = [
           '/login',
           '/session',
-          '/session/sessions/_id/edit',
+          '/session/sessions/_id',
           '/session/sessions/new',
           '/wishlist',
           '/productmanagement',
           '/productmanagement/produduse/new',
-          '/productmanagement/produduse/_id/edit/',
+          '/productmanagement/produduse/_id',
           '/wishlist/produse/new',
-          '/wishlist/produse/_id/edit/',
+          '/wishlist/produse/_id',
           '/pay',
           '/intendant',
-          '/intendant/users/_id/edit/'
+          '/intendant/users/_id'
         ];
         var restrictedPage = publicPages.indexOf($location.path()) === -1;
         if (restrictedPage && !$localStorage.currentUser) {
