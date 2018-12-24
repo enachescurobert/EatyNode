@@ -137,14 +137,15 @@ angular.module('demoApp')
           '/session/sessions/_id',
           '/session/sessions/new',
           '/wishlist',
-          '/productmanagement',
-          '/productmanagement/produduse/new',
-          '/productmanagement/produduse/_id',
+          // '/productmanagement',
+          // '/productmanagement/produduse/new',
+          // '/productmanagement/produduse/_id',
           '/wishlist/produse/new',
           '/wishlist/produse/_id',
           '/pay',
           '/intendant',
-          '/intendant/users/_id'
+          '/intendant/users/_id',
+          '/intendant/users/new'
         ];
         var restrictedPage = publicPages.indexOf($location.path()) === -1;
         if (restrictedPage && !$localStorage.currentUser) {

@@ -44,8 +44,8 @@
                 <!-- <td>{{user.groups.name}}</td> -->
                 <!-- <td>{{user.groups}}</td> -->
                 <td>
-                  <a class="btn btn-primary btn-fill" ui-sref="editUser({_id:user._id})"><i class="glyphicon glyphicon-edit"></i></a>
-                  <a class="btn btn-danger btn-fill" ng-click="deleteUser(user)"><i class="glyphicon glyphicon-trash"></i></a>
+                  <a class="btn btn-primary btn-fill" ng-if=false ui-sref="editUser({_id:user._id})"><i class="glyphicon glyphicon-edit"></i></a>
+                  <a class="btn btn-danger btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="deleteUser(user)"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
               </tr>
             </table>

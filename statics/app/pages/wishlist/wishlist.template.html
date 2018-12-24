@@ -65,9 +65,9 @@
                   </td>-->
 
                    <td>
-                    <a class="btn btn-primary btn-fill" ui-sref="editProdus({_id:produs._id})"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a class="btn btn-warning btn-fill" ng-click="produs.like = 0; produs.$update();reloadRoute()">Reset Likes <i class="glyphicon glyphicon-refresh"></i></a>
-                    <a class="btn btn-danger btn-fill" ng-click="deleteProdus(produs)"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a class="btn btn-primary btn-fill" ng-if=false ui-sref="editProdus({_id:produs._id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-warning btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="produs.like = 0; produs.$update();reloadRoute()">Reset Likes <i class="glyphicon glyphicon-refresh"></i></a>
+                    <a class="btn btn-danger btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="deleteProdus(produs)"><i class="glyphicon glyphicon-trash"></i></a>
                   </td>
                 </tr>
                 <!-- <input type="button" value="Export" ng-click="Export()" /> -->
