@@ -26,7 +26,8 @@ angular.module('demoApp')
       })
       .state('wishlist',{
         url:'/wishlist', 
-        templateUrl: 'app/pages/wishlist/wishlist.template.html'
+        templateUrl:'app/pages/wishlist/wishlist.template.html',
+        controller:"ProdusListController"
       })
         .state('productmanagement',{
           url:'/productmanagement', 
@@ -41,31 +42,17 @@ angular.module('demoApp')
           templateUrl: 'app/pages/intendant/intendant.template.html'
         })
 
-        // Wishlist
-
-        // .state('produse', { // state for showing all produse
-        //   url: '/produse',
-        //   component: 'produsList',
-        // })
-        .state('viewProdus', { //state for showing single produs
-          url: '/wishlist/produse/:id/view',
-          component: 'produsView',
-        })
         .state('newProdus', { //state for adding a new produs
           url: '/wishlist/produse/new',
-          component: 'produsCreate',
-        })
+          templateUrl:'app/components/product-type-row/templates/produs-add.html',
+          controller: 'ProdusCreateController'
+          })
         .state('editProdus', { //state for updating a produs
           url: '/wishlist/produse/:id/edit',
-          component: 'produsEdit',
+          templateUrl:'app/components/product-type-row/templates/produs-edit.html',
+          controller: 'ProdusEditController'
         })
 
-        // Product Management
-        
-        // .state('produduse', { // state for showing all produse
-        //   url: '/produduse',
-        //   component: 'produdusList',
-        // })
         .state('viewProdudus', { //state for showing single produdus
           url: '/productmanagement/produduse/:id/view',
           component: 'produdusView',
@@ -79,12 +66,7 @@ angular.module('demoApp')
           component: 'produdusEdit',
         })
 
-        // Intendant
 
-        // .state('produse', { // state for showing all produse
-        //   url: '/produse',
-        //   component: 'produsList',
-        // })
         .state('viewUser', { //state for showing single user
           url: '/intendant/users/:id/view',
           component: 'userView',
@@ -98,18 +80,7 @@ angular.module('demoApp')
           component: 'userEdit',
         })
 
-                // session
 
-        // .state('produse', { // state for showing all produse
-        //   url: '/produse',
-        //   component: 'produsList',
-        // })
-        // .state('viewSession', { //state for showing single user
-        //   url: '/session/sessions/:id/view',
-        //   templateUrl: 'app/components/session-row/templates/session-view.html',
-        //   // component: 'sessionView',
-        //   controller: 'SessionViewController'
-        // })
         .state('newSession', { //state for adding a new session
           url: '/session/sessions/new',
           templateUrl: 'app/components/session-row/templates/session-add.html',

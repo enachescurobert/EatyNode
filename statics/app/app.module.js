@@ -6,17 +6,14 @@ angular.module('demoApp', [
     'ui.router',
     'ngResource',
     'session',
+    'wishlist',
     'pay',
-    'WishList',
-    'wishList.services',
     'ProductManagement',
     'ProductManagement.services',
     'InTendant',
     'inTendant.services',
     'groupControllers',
-    'productmanagementControllers', //not used
-    // 'productControllers', //not used  
-    // 'userControllers' //not used
+    'productControllers', //PRODUCT TYPE CONTROLLER  
     'sessionControllers', //injected in Session component  
     'ngMessages', 
     'ngStorage',

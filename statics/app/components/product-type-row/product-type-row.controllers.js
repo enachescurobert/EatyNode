@@ -1,18 +1,17 @@
 angular.module('productControllers', [])
-       .factory('Produs', function($resource) {
-    return $resource('/products/:_id/',{_id:'@id'},{
-        update: {method:'PUT'},
-        query:  {method: 'GET', isArray: true},
-    },{
+  .factory('Produs', function($resource) {
+  return $resource('/Products/:_id/',{_id:'@_id'},{
+    update: {method:'PUT'},
+},{
 
-    
-    stripTrailingSlashes: false
-  });
+
+stripTrailingSlashes: false
+});
 })
-       .service('popupService', function($window){
-    this.showPopup=function(message){
-        return $window.confirm(message);
-    }
+     .service('popupService',function($window){
+  this.showPopup=function(message){
+      return $window.confirm(message);
+  }
 })
 
 
@@ -39,7 +38,6 @@ angular.module('productControllers', [])
 .controller('ProdusViewController', function($scope, $stateParams, Produs) {
   $scope.produs = Produs.get({id:$stateParams.id}); //Get a single produs.Issues a GET to /api/produse/:id
 })
-// controllerAs: 'ProdusViewController'
 
 
 
@@ -72,3 +70,11 @@ $scope.produs = Produs.get({id:$stateParams.id});
 
 $scope.loadProdus(); // Load a produs which can be edited on UI
 })
+
+.controller('ProdusReload',
+function ($scope, $state, $stateParams, Produs) {
+  $scope.reloadRoute = function() {
+    $state.reload();
+ }
+}
+)
