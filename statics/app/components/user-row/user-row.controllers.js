@@ -1,6 +1,6 @@
 angular.module('userControllers', [])
        .factory('User', function($resource) {
-        return $resource('/user/:id/', {
+        return $resource('/user/:_id/', {
           update: {method:'PUT'},
     },{
 

@@ -1,4 +1,78 @@
-<produs-list></produs-list>
-<!-- <produs-view></produs-view>
-<produs-create></produs-create>
-<produs-edit></produs-edit> -->
+<br>
+<div ng-contoller="ProdusEditController">
+<div ng-contoller="ProdusListController">
+<div ng-contoller="ProdusCreateController">
+<div ng-contoller="ProdusViewController">
+<div ng-controller="ProdusReload">
+
+
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="header">
+              <div class="col-md-4">
+                <h4 class="title">Current Wishlist</h4>
+                <p class="category">What you would like us to take for you?</p>
+              </div>
+              <div class="col-md-3" style="text-align: center;">
+                <input class="form-control col-md-3" ng-model="search" type="text" placeholder="Search product name"
+                  aria-label="Search">
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-success btn-fill" ui-sref="newProdus">Add New Product</button>
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-info btn-fill" ng-click="Export()">Export to PDF</button>
+                <!-- <input type="button" value="Export" ng-click="Export()" /> -->
+              </div>
+            </div>
+            <div class="content table-responsive table-full-width">
+              <table  id="tblWishlist" class="table table-hover table-striped"  style="text-align: center">
+                <!-- <tr>
+                  <th style="text-align: center">Product:</th>
+                  <th>
+                    <button ng-click="orderBy('like')">LIKE</button>
+                    <span class="sortorder" ng-show="propertyName === 'like'" ng-class="{reverse: reverse}"></span>
+                  </th>
+              </tr> -->
+                <tr ng-repeat="produs in produse| filter: search | orderBy: '-like'">
+                  <!-- ng-table="vm.tableParams" | orderBy: '-like' -->
+                  <td data-title="'Product name'" filter="{name : 'text'}" sortable="'name'">
+                    {{produs.name}}
+                  </td>
+                  <td>
+                    {{produs.like}}
+                    <button type="button" class="btn btn-sm btn-primary btn-number btn-fill" data-type="plus" ng-click="produs.like = produs.like + 1; produs.$update();reloadRoute()">
+ <span class="glyphicon glyphicon-thumbs-up"></span> Like
+
+                    </button>
+                    </td>
+                    
+                    <!-- <td>
+                    {{produs.dislike}}
+                    <button type="button" class="btn btn-sm btn-danger btn-number btn-fill" data-type="plus" ng-click="produs.dislike = produs.dislike + 1; produs.$update()">
+ <span class="glyphicon glyphicon-thumbs-down"></span> Dislike
+                    </button>
+                    </td> -->
+
+                  
+                  <td>
+                    <a class="btn btn-primary btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="editProdus({id:produs.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-warning btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="produs.like = 0; produs.$update()">Reset Likes <i class="glyphicon glyphicon-refresh"></i></a>
+                    <a class="btn btn-danger btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="deleteProdus(produs)"><i class="glyphicon glyphicon-trash"></i></a>
+                  </td>
+                </tr>
+                <!-- <input type="button" value="Export" ng-click="Export()" /> -->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
