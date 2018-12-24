@@ -24,7 +24,10 @@
                                                 placeholder="Search" aria-label="Search">
                                         </div>
                                         <div class="col-md-3">
-                                            <button class="btn btn-success btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
+                                            <!--<button class="btn btn-success btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
+                                            -->
+                                        <button class="btn btn-success btn-fill" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
+
                                         </div>
 
                                         <div class="col-md-3">
@@ -47,7 +50,7 @@
                                                 <th scope="col">Coffe Total(€)</th>
                                                 <th scope="col">Cake Total(€)</th>
                                                 <th scope="col">Total Debt(€)</th>
-                                                <th scope="col" colspan="3" style="text-align: center"><button class="btn btn-secondary btn-fill" ng-click="resetSession(); sessions.$update()" ng-if="myVar == 'isAuthenticated'">
+                                                <th scope="col" colspan="3" style="text-align: center"><button class="btn btn-secondary btn-fill" ng-click="resetSession(); sessions.$update();reloadRoute()">
                                                         Reset The Entire Session 
                                                       </button></th>
                                             </tr>
@@ -91,7 +94,7 @@
                                                         <td scope="row">{{session.cake / 2 | currency :"€"}}</td>
                                                         <td scope="row" ng-class="{red: (session.cake * 0.5 + session.coffe * 0.1) != 0}">{{session.cake * 0.5 + session.coffe * 0.1 |
                                                             currency :"€"}}</td>
-                                                    <td scope="row">
+                                                    <!--<td scope="row">
                                                         <a class="btn btn-primary btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="editSession({id:session.id})"><i class="glyphicon glyphicon-edit"></i></a>
                                                     </td>
                                                     <td scope="row">
@@ -99,6 +102,16 @@
                                                     </td>
                                                     <td scope="row">
                                                         <button class="btn btn-danger btn-fill" ng-show="myVar == 'isAuthenticated'" ng-click="deleteSession(session)"> <i class="glyphicon glyphicon-trash"></i></button>
+                                                    </td>-->
+
+                                                    <td scope="row">
+                                                        <a class="btn btn-primary btn-fill" ui-sref="editSession({id:session.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <button class="btn btn-warning btn-fill" ng-click="session.cake = 0; session.coffe = 0; session.$update();reloadRoute()">Reset Session</button>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <button class="btn btn-danger btn-fill" ng-click="deleteSession(session)"> <i class="glyphicon glyphicon-trash"></i></button>
                                                     </td>
                                                     
                                                 </tr>
@@ -106,10 +119,15 @@
                                             </tbody>
                                         </table>
                                         <hr>
+                                        <button class="btn btn-info btn-fill" data-ng-click="exportAction('csv')">Export as CSV</button>
+                                      <button class="btn btn-info btn-fill" data-ng-click="exportAction('excel')">Export as Excel</button>
+                                      <button class="btn btn-info btn-fill" data-ng-click="exportAction('doc')">Export as Doc</button>
+                                     
+                                    <!--
                                         <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('csv')">Export as CSV</button>
                                       <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('excel')">Export as Excel</button>
                                       <button class="btn btn-info btn-fill" ng-if="myVar == 'isAuthenticated'" data-ng-click="exportAction('doc')">Export as Doc</button>
-                                     <!-- <button class="btn btn-light btn-fill" data-ng-click="exportAction('pdf')"> Export Pdf</button> -->
+                                      <button class="btn btn-light btn-fill" data-ng-click="exportAction('pdf')"> Export Pdf</button> -->
 
                                     </div>
                                 </div>

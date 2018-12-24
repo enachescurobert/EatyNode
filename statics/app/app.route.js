@@ -126,7 +126,7 @@ angular.module('demoApp')
 
     // redirect to login page if not logged in and trying to access a restricted page
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        var publicPages = ['/login','/session','/wishlist','/productmanagement','/productmanagement/produduse/new','/wishlist/produse/new','/pay','/intendant'];
+        var publicPages = ['/login','/session','/session/sessions/new','/wishlist','/productmanagement','/productmanagement/produduse/new','/wishlist/produse/new','/pay','/intendant'];
         var restrictedPage = publicPages.indexOf($location.path()) === -1;
         if (restrictedPage && !$localStorage.currentUser) {
             $location.path('/login');

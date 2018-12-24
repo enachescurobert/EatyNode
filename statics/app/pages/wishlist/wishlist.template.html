@@ -57,11 +57,17 @@
                     </button>
                     </td> -->
 
-                  
+                  <!--
                   <td>
                     <a class="btn btn-primary btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="editProdus({id:produs.id})"><i class="glyphicon glyphicon-edit"></i></a>
                     <a class="btn btn-warning btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="produs.like = 0; produs.$update()">Reset Likes <i class="glyphicon glyphicon-refresh"></i></a>
                     <a class="btn btn-danger btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="deleteProdus(produs)"><i class="glyphicon glyphicon-trash"></i></a>
+                  </td>-->
+
+                   <td>
+                    <a class="btn btn-primary btn-fill" ui-sref="editProdus({id:produs.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-warning btn-fill" ng-click="produs.like = 0; produs.$update();reloadRoute()">Reset Likes <i class="glyphicon glyphicon-refresh"></i></a>
+                    <a class="btn btn-danger btn-fill" ng-click="deleteProdus(produs)"><i class="glyphicon glyphicon-trash"></i></a>
                   </td>
                 </tr>
                 <!-- <input type="button" value="Export" ng-click="Export()" /> -->
