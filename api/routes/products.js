@@ -36,7 +36,10 @@ router.post("/", ProductsController.products_create_product);
 
 router.get("/:productId", ProductsController.products_get_product);
 
-router.patch("/:productId", checkAuth, ProductsController.products_update_product);
+//router.patch("/:productId", checkAuth, ProductsController.products_update_product);
+
+router.patch("/:productId", ProductsController.products_update_product);
+
 
 router.delete("/:productId", ProductsController.products_delete);
 
