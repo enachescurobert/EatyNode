@@ -19,11 +19,11 @@
  
         function login() {
             vm.loading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (result) {
+            AuthenticationService.Login(vm.email, vm.password, function (result) {
                 if (result === true) {
                     $location.path('/session');
                 } else {
-                    vm.error = 'Username or password is incorrect';
+                    vm.error = 'email or password is incorrect';
                     vm.loading = false;
                 }
             });

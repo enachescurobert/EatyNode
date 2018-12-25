@@ -47,7 +47,7 @@
                   <!-- <td>{{produdus.quantity * produdus.cross * 0.5}} (€)</td> -->
                   <td ng-init="$parent.total = $parent.total + (produdus.price * produdus.quantity)">{{ produdus.price * produdus.quantity| currency :"€"}}</td>
                   <td>
-                    <a class="btn btn-primary btn-fill" ui-sref="editProdudus({id:produdus.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a class="btn btn-primary btn-fill" ng-if=false ui-sref="editProdudus({_id:produdus._id})"><i class="glyphicon glyphicon-edit"></i></a>
                     <a class="btn btn-danger btn-fill" ng-click="deleteProdudus(produdus)"><i class="glyphicon glyphicon-trash"></i></a>
                   </td>
                 </tr>

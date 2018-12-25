@@ -60,7 +60,7 @@ angular.module('sessionControllers', [])
   .controller('SessionViewController',
     function ($scope, $stateParams, Session) {
       $scope.session = Session.get({
-        id: $stateParams.id
+        _id: $stateParams._id
       }); //Get a single session.Issues a GET to /api/sessions/:id
     }
   )
@@ -89,7 +89,7 @@ angular.module('sessionControllers', [])
 
       $scope.loadSession = function () { //Issues a GET request to /api/sessions/:id to get a session to update
         $scope.session = Session.get({
-          id: $stateParams.id
+          _id: $stateParams._id
         });
       };
 

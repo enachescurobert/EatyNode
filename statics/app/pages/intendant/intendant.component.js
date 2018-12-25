@@ -28,7 +28,7 @@ angular
  .component('userView',{
     templateUrl: 'app/pages/intendant/templates/user-view.html',
     controller: function($scope,$stateParams, User) {
-      $scope.user = User.get({id:$stateParams.id}); //Get a single user.Issues a GET to /api/users/:id
+      $scope.user = User.get({_id:$stateParams._id}); //Get a single user.Issues a GET to /api/users/:id
     }
     // controllerAs: 'UserViewController'
 
@@ -62,7 +62,7 @@ angular
    };
    
    $scope.loadUser = function() { //Issues a GET request to /api/users/:id to get a user to update
-   $scope.user = User.get({id:$stateParams.id});
+   $scope.user = User.get({_id:$stateParams._id});
    };
    
    $scope.loadUser(); // Load a user which can be edited on UI

@@ -26,7 +26,7 @@
                                         <div class="col-md-3">
                                             <!--<button class="btn btn-success btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
                                             -->
-                                        <button class="btn btn-success btn-fill" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
+                                        <button class="btn btn-success btn-fill" ng-if="myVar == 'isAuthenticated'" ui-sref="newSession">Add <i class="glyphicon glyphicon-user"></i></button>
 
                                         </div>
 
@@ -50,7 +50,7 @@
                                                 <th scope="col">Coffe Total(€)</th>
                                                 <th scope="col">Cake Total(€)</th>
                                                 <th scope="col">Total Debt(€)</th>
-                                                <th scope="col" colspan="3" style="text-align: center"><button class="btn btn-secondary btn-fill" ng-click="resetSession(); sessions.$update();reloadRoute()">
+                                                <th scope="col" colspan="3" style="text-align: center"><button class="btn btn-secondary btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="resetSession(); sessions.$update();reloadRoute()">
                                                         Reset The Entire Session 
                                                       </button></th>
                                             </tr>
@@ -105,13 +105,13 @@
                                                     </td>-->
 
                                                     <td scope="row">
-                                                        <a class="btn btn-primary btn-fill" ui-sref="editSession({id:session.id})"><i class="glyphicon glyphicon-edit"></i></a>
+                                                        <a class="btn btn-primary btn-fill" ng-if=false ui-sref="editSession({_id:session._id})"><i class="glyphicon glyphicon-edit"></i></a>
                                                     </td>
                                                     <td scope="row">
-                                                        <button class="btn btn-warning btn-fill" ng-click="session.cake = 0; session.coffe = 0; session.$update();reloadRoute()">Reset Session</button>
+                                                        <button class="btn btn-warning btn-fill" ng-if="myVar == 'isAuthenticated'" ng-click="session.cake = 0; session.coffe = 0; session.$update();reloadRoute()">Reset Session</button>
                                                     </td>
                                                     <td scope="row">
-                                                        <button class="btn btn-danger btn-fill" ng-click="deleteSession(session)"> <i class="glyphicon glyphicon-trash"></i></button>
+                                                        <button class="btn btn-danger btn-fill" ng-show="myVar == 'isAuthenticated'" ng-click="deleteSession(session)"> <i class="glyphicon glyphicon-trash"></i></button>
                                                     </td>
                                                     
                                                 </tr>
