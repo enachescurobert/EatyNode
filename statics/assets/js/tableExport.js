@@ -34,7 +34,7 @@ THE SOFTWARE.*/
 						htmlContent:'false',
 						consoleLog:'false'
 				};
-                
+				
 				var options = $.extend(defaults, options);
 				var el = this;
 				
@@ -286,7 +286,8 @@ THE SOFTWARE.*/
 					excelFile += excel;
 					excelFile += "</body>";
 					excelFile += "</html>";
-
+					excelFile += "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
+					
 					var fileType='';
 					if (defaults.type == 'excel') {
 					    fileType = 'xls';
